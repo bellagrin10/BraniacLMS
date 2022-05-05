@@ -1,4 +1,4 @@
-{% extends "mainapp/base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -7,12 +7,12 @@
 
   <div class="col-lg-8">
 
-    {% for i in loop_times %}
+    {% for i in range %}
     <div class="card my-2">
       <div class="card-body">
-        <h5 class="card-title">{{ title}} {{i}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ date|date:"d.m.Y" }}</h6>
-        <p class="card-text">{{ preview }}</p>
+        <h5 class="card-title">{{ new.title}} {{i}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ new.date|date:"d.m.Y" }}</h6>
+        <p class="card-text">{{ new.preview.0 }} {{i}}{{new.preview.1}}</p>
         <a href="#" class="card-link">Подробнее</a>
       </div>
     </div>

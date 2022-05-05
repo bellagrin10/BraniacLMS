@@ -13,10 +13,10 @@ class NewsView(TemplateView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context = {
-            'loop_times': range(1, 6),
+        context['range'] = range(1, 6)
+        context['new'] = {
             'title': 'Новостной заголовок',
-            'preview': 'Предварительное описание',
+            'preview': ['Предварительное описание', '-й новости'],
             'date': datetime.now()
         }
         return context
