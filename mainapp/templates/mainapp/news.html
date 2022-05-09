@@ -18,6 +18,34 @@
     </div>
     {% endfor %}
 
+    {% for title, preview, img, date in myNewscast %}
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ preview }}</h6>
+        <img src="{{ img }}" alt="" style="width: 85%; padding-left: 7%">
+        <p class="card-text">{{ date }}</p>
+        <a href="#" class="card-link">Подробнее</a>
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- 7. (**) На странице новостей создайте отдельную карточку, где некоторые слова представляют собой 
+      ссылку с GET-параметром. Сделайте так, чтобы при её обработке на стороне сервера производилось 
+      автоматическое перенаправление на любую поисковую систему с запросом из этого параметра. -->
+
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title">Изучаем программирование с <a href="GeeBrains" class="card-link">GeeBrains</a></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Реализуем себя в <a href="IT" class="card-link">IT</a></h6>
+        <p class="card-text">
+          <a href="Django" class="card-link">Django</a> — свободный фреймворк для веб-приложений на языке
+          <a href="Python" class="card-link">Python</a>
+        </p>
+
+      </div>
+    </div>
+
   </div>
 
   <div class="col-lg-4">
@@ -59,7 +87,6 @@
     </ul>
   </nav>
 </div>
-
 
 
 {% endblock content %}
