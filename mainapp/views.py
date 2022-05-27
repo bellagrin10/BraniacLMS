@@ -3,7 +3,7 @@ from django.shortcuts import render
 import requests
 from black import Any, Dict
 
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 from datetime import datetime
 
 import os
@@ -19,6 +19,7 @@ class NewsPageView(TemplateView):
     template_name = 'mainapp/news.html'
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        
         # 3. На странице новостей организуйте цикл, где выводятся карточки новостей (5 одинаковых карточек).
 
         context = super().get_context_data(**kwargs)
@@ -49,6 +50,7 @@ class NewsPageView(TemplateView):
             publishedAt.append(new['publishedAt'])
 
         context['myNewscast'] = zip(new_title, description, img, publishedAt)
+
         return context
 
 
@@ -60,7 +62,9 @@ class ContactsPageView(TemplateView):
     template_name = 'mainapp/contacts.html'
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+
         context = super().get_context_data(**kwargs)
+
         map = [
             'https://yandex.ru/map-widget/v1/-/CCUAZHcrhA', 
             'https://yandex.ru/map-widget/v1/-/CCUAZHX3xB', 
@@ -75,6 +79,7 @@ class ContactsPageView(TemplateView):
             'Красная площадь, 7, Москва, Россия', 
         ]
         context['contacts'] = zip(map, city, phone, email, address)
+        
         return context
 
 
