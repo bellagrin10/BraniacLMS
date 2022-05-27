@@ -4,11 +4,11 @@ from black import Any, Dict
 from django.views.generic import TemplateView
 from datetime import datetime
 
-class MainPageView(TemplateView):
+class IndexView(TemplateView):
     template_name = 'mainapp/index.html'
 
 
-class NewsPageView(TemplateView):
+class NewsView(TemplateView):
     template_name = 'mainapp/news.html'
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
@@ -21,19 +21,19 @@ class NewsPageView(TemplateView):
         }
         return context
 
-class CoursesPageView(TemplateView):
+class CoursesView(TemplateView):
     template_name = 'mainapp/courses_list.html'
 
 
-class ContactsPageView(TemplateView):
+class ContactsView(TemplateView):
     template_name = 'mainapp/contacts.html'
 
 
-class DocSitePageView(TemplateView):
+class DocSiteView(TemplateView):
     template_name = 'mainapp/doc_site.html'
 
 
-class LoginPageView(TemplateView):
+class LoginView(TemplateView):
     template_name = 'mainapp/login.html'
 
 
