@@ -6,16 +6,12 @@ from black import Any, Dict
 from django.views.generic import TemplateView
 from datetime import datetime
 
-<<<<<<< HEAD
-class IndexView(TemplateView):
-=======
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-class MainPageView(TemplateView):
->>>>>>> changes added
+class IndexView(TemplateView):
     template_name = 'mainapp/index.html'
 
 
@@ -57,12 +53,8 @@ class NewsView(TemplateView):
 
         return context
 
-<<<<<<< HEAD
-class CoursesView(TemplateView):
-=======
 
-class CoursesPageView(TemplateView):
->>>>>>> changes added
+class CoursesView(TemplateView):
     template_name = 'mainapp/courses_list.html'
 
 

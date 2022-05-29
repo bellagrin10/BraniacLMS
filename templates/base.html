@@ -22,26 +22,7 @@
 
 <body>
 
-<<<<<<< HEAD:mainapp/templates/mainapp/base.html
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'mainapp:index' %}">
-                <img src="{% static 'img/logo.png' %}" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            {% include "mainapp/includes/inc_main_menu.html" %}
-        </div>
-    </nav>
-
-=======
-    {% include 'includes/inc_main_menu.html' %}
->>>>>>> changes added:templates/base.html
+    {% include "mainapp/includes/inc_main_menu.html" %}
 
     <div class="container-md">
 
@@ -50,7 +31,6 @@
         {% endblock content %}
 
     </div>
-
 
     <!-- Footer -->
 
@@ -113,10 +93,6 @@
         </div>
     </div>
 
-    <!-- /Footer -->
-
-
-
 
     <!-- JavaScript section -->
     <!-- Bootstrap -->
@@ -129,8 +105,6 @@
 
     <!-- FontAwesome -->
     <script src="{% static 'js/fontawesome.all.min.js' %}"></script>
-
-
 
 </body>
 
