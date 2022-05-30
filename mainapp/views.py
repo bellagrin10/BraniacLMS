@@ -7,6 +7,8 @@ from black import Any, Dict
 from django.views.generic import TemplateView
 from dotenv import load_dotenv
 
+from mainapp.models import News
+
 load_dotenv()
 
 
@@ -19,36 +21,40 @@ class NewsView(TemplateView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
 
-        # 3. На странице новостей организуйте цикл, где выводятся карточки новостей (5 одинаковых карточек).
-
         context = super().get_context_data(**kwargs)
-        context["range"] = range(1, 6)
-        context["new"] = {
-            "title": "Новостной заголовок",
-            "preview": ["Предварительное описание", "-й новости"],
-            "date": datetime.now(),
-        }
 
-        # 6. (*) Сформируйте JSON-файл и разместите в нём несколько сгенерированных новостей с заголовками,
+        # lesson3  3. На странице новостей организуйте цикл, где выводятся карточки новостей (5 одинаковых карточек).
+
+        # context["range"] = range(1, 6)
+        # context["new"] = {
+        #     "title": "Новостной заголовок",
+        #     "preview": ["Предварительное описание", "-й новости"],
+        #     "date": datetime.now(),
+        # }
+
+        # lesson3  6. (*) Сформируйте JSON-файл и разместите в нём несколько сгенерированных новостей с заголовками,
         # Затем выведите их в цикле на странице новостей.
 
-        API_KEY = str(os.getenv("API_KEY"))
+        # API_KEY = str(os.getenv("API_KEY"))
 
-        url = f"https://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey={API_KEY}"
-        news = requests.get(url).json()
+        # url = f"https://newsapi.org/v2/top-headlines?country=ru&category=technology&apiKey={API_KEY}"
+        # news = requests.get(url).json()
 
-        new_title = []
-        description = []
-        img = []
-        publishedAt = []
+        # new_title = []
+        # description = []
+        # img = []
+        # publishedAt = []
 
-        for new in news["articles"]:
-            new_title.append(new["title"])
-            description.append(new["description"])
-            img.append(new["urlToImage"])
-            publishedAt.append(new["publishedAt"])
+        # for new in news["articles"]:
+        #     new_title.append(new["title"])
+        #     description.append(new["description"])
+        #     img.append(new["urlToImage"])
+        #     publishedAt.append(new["publishedAt"])
 
-        context["myNewscast"] = zip(new_title, description, img, publishedAt)
+        # context["myNewscast"] = zip(new_title, description, img, publishedAt)
+
+        # lesson 4
+        context["newscast"] = News.objects.all()
 
         return context
 

@@ -7,7 +7,7 @@
 
   <div class="col-lg-8">
 
-    {% for i in range %}
+    <!-- {% for i in range %}
     <div class="card my-2">
       <div class="card-body">
         <h5 class="card-title">{{ new.title}} {{i}}</h5>
@@ -28,13 +28,13 @@
         <a href="#" class="card-link">Подробнее</a>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} -->
 
-    <!-- 7. (**) На странице новостей создайте отдельную карточку, где некоторые слова представляют собой 
+    <!-- lesson3  7. (**) На странице новостей создайте отдельную карточку, где некоторые слова представляют собой 
       ссылку с GET-параметром. Сделайте так, чтобы при её обработке на стороне сервера производилось 
       автоматическое перенаправление на любую поисковую систему с запросом из этого параметра. -->
 
-    <div class="card my-2">
+    <!-- <div class="card my-2">
       <div class="card-body">
         <h5 class="card-title">Изучаем программирование с <a href="GeeBrains" class="card-link">GeeBrains</a></h5>
         <h6 class="card-subtitle mb-2 text-muted">Реализуем себя в <a href="IT" class="card-link">IT</a></h6>
@@ -42,9 +42,19 @@
           <a href="Django" class="card-link">Django</a> — свободный фреймворк для веб-приложений на языке
           <a href="Python" class="card-link">Python</a>
         </p>
+      </div>
+    </div> -->
 
+    {% for news in newscast %}
+    <div class="card my-2">
+      <div class="card-body">
+        <h5 class="card-title">{{ news.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ news.preamble }}</h6>
+        <p class="card-text">{{ news.created_at }}</p>
+        <a href="#" class="card-link">{{ news.body }}</a>
       </div>
     </div>
+    {% endfor %}
 
   </div>
 
