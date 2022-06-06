@@ -1,9 +1,8 @@
-import os
+# import os
 from datetime import datetime
 
-import requests
+# import requests
 from black import Any, Dict
-
 from django.views.generic import TemplateView
 from dotenv import load_dotenv
 
