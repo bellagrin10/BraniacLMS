@@ -1,3 +1,6 @@
+import json
+from django.conf import settings
+
 from seeding.seeding import BaseSeeding
 
 from mainapp.models import CoursesTeacher
@@ -8,12 +11,22 @@ class Seeding(BaseSeeding):
     def seeding(self):
         """ Seeding data in project """
      
-        CoursesTeacher.objects.create(
-            name_first="Альфред",
-            name_second="Нуцубидзе",
-            day_birth="1990-07-10",
-            course=[1, 3],
-        )
+        with open(
+            settings.BASE_DIR / "mainapp/fixtures/004_teachers.json"
+        ) as teachers_file:
+            teachers_obj = json.load(teachers_file)
+        teachers_list = []
+        for teacher in teachers_obj:
+            teachers_list.append(
+                CoursesTeacher(
+                    pk=teacher["pk"],
+                    name_first=teacher["fields"]["name_first"],
+                    name_second=teacher["fields"]["name_second"],
+                    day_birth=teacher["fields"]["day_birth"],
+                    course=teacher["fields"]["course"],
+                )
+            )
+        CoursesTeacher.objects.bulk_create(teachers_list)
                  
 
     def rollback(self):
