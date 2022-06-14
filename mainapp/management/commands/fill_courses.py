@@ -19,7 +19,9 @@ class Command(BaseCommand):
                     pk=course["pk"],
                     name=course["fields"]["name"],
                     description=course["fields"]["description"],
-                    description_as_markdown=course["fields"]["description_as_markdown"],
+                    description_as_markdown=course["fields"][
+                        "description_as_markdown"
+                    ],
                     cost=course["fields"]["cost"],
                     cover=course["fields"]["cover"],
                     created_at=course["fields"]["created_at"],

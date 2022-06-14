@@ -21,7 +21,9 @@ class Command(BaseCommand):
                     num=lesson["fields"]["num"],
                     title=lesson["fields"]["title"],
                     description=lesson["fields"]["description"],
-                    description_as_markdown=lesson["fields"]["description_as_markdown"],
+                    description_as_markdown=lesson["fields"][
+                        "description_as_markdown"
+                    ],
                     created_at=lesson["fields"]["created_at"],
                     updated_at=lesson["fields"]["updated_at"],
                 )

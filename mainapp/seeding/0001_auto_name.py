@@ -7,10 +7,9 @@ from mainapp.models import CoursesTeacher
 
 
 class Seeding(BaseSeeding):
-
     def seeding(self):
-        """ Seeding data in project """
-     
+        """Seeding data in project"""
+
         with open(
             settings.BASE_DIR / "mainapp/fixtures/004_teachers.json"
         ) as teachers_file:
@@ -27,8 +26,7 @@ class Seeding(BaseSeeding):
                 )
             )
         CoursesTeacher.objects.bulk_create(teachers_list)
-                 
 
     def rollback(self):
-        """ Remove seeded data from project  """
+        """Remove seeded data from project"""
         pass
